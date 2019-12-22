@@ -1,13 +1,35 @@
 .nav {
 
     &-menu {
-        @include flex(row, nowrap, center, space-between, flex);
+        @include flex(column, nowrap, center, space-between);
+        
+        margin: 0;
+        padding: 60px 0;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        
+        background-color: $black;
+
+        display: none;
+        opacity: 0;
+
+        &--active {
+            display: flex;
+            opacity: 0.9;
+
+        }
 
         &-item {
             list-style-type: none;
         }
 
         &-link {
+            display: block;
             font-size: 1.6rem;
             font-weight: 300;
 
@@ -16,9 +38,121 @@
 
             @include transition(background-color);
 
+            color: #fff;
+
             &:hover {
                 background-color: #fff;
             }
+
+        }
+
+    }
+
+    &-icon {
+        position: fixed;
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        width: 35px;
+        height: 35px;
+
+        z-index: 1;
+
+        &-bars {
+            position: absolute;
+            top: 15px;
+            width: 35px;
+            height: 2px;
+            background-color: #000;
+            transition: transform .22s ease-in-out;
+
+            &:before,
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 35px;
+                height: 2px;
+                background-color: #000;
+
+            }
+
+            &:before {
+                top: -12px;
+                transition: top .1s .25s ease-in, transform .22s ease-in-out;
+            }
+
+            &:after {
+                bottom: -12px;
+                transition: bottom .1s .25s ease-in,transform .22s ease-in-out;
+
+            }
+
+        }
+
+        &--active {
+
+            .nav-icon-bars {
+                background-color: #f2f2f2;
+                transform: rotate(225deg);
+                transition: transform .22s .12s ease-in-out;
+
+                &:before,
+                &:after {
+                    background-color: #f2f2f2;
+
+                }
+
+                &:before {
+                    top: 0;
+                    transition: top .1s ease-out;
+
+                }
+
+                &:after {
+                    bottom: 0;
+                    transform: rotate(-90deg);
+                    transition: bottom .1s ease-out,transform .22s .12s ease-in-out;
+                }
+
+                
+            }
+
+        }
+
+    }
+
+}
+
+@include media(tablet) {
+
+    .nav {
+
+        &-menu {
+            @include flex(row, nowrap, center, space-between, flex);
+
+            opacity: 1;
+
+            width: 100%;
+            height: auto;
+            
+            position: fixed;
+            top: 15px;
+
+            background: none;
+
+            padding: 15px 30px;
+
+            &-link {
+                color: $black;
+
+            }
+
+        }
+
+        &-icon {
+            display: none;
 
         }
 

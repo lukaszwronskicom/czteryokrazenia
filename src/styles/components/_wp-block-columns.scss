@@ -3,10 +3,11 @@
 @include media( tablet ) {
 
     .wp-block-columns {
-        @include flex(row, nowrap, null, null, flex);
+        @include flex(row, nowrap, center, center, flex);
 
         & > div {
-            flex: 1;
+            margin: 0 15px;
+            text-align: center;
 
         }
         

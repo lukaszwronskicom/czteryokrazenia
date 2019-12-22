@@ -16,4 +16,16 @@
 
     }
 
+    &-black {
+        background-color: $black;
+        color: $white;
+
+        &:hover {
+            background-color: $yellow;
+            color: $black;
+
+        }
+
+    }
+
 }
