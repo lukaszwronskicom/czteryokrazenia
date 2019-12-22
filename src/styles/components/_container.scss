@@ -81,8 +81,13 @@
 
     &-hero {
         background: 
-        url(../images/mateusz-dziopa-mikrofon.jpg) right bottom no-repeat, 
-        url(../images/ewelina-wloch-aparat.jpg) left bottom no-repeat;
+        url(../images/mateusz-dziopa-mikrofon.png) right center no-repeat, 
+        url(../images/ewelina-wloch-aparat.png) left center no-repeat;
+
+        @include media(fhd) {
+            padding: 4rem 0;
+
+        }
 
     }
 

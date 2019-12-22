@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Navbar from './Navbar'
-import '../styles/main.scss'
 
 const TemplateWrapper = ({ children }) => (
   <div>
