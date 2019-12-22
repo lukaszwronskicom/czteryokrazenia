@@ -1,0 +1,27 @@
+.nav {
+
+    &-menu {
+        @include flex(row, nowrap, center, space-between, flex);
+
+        &-item {
+            list-style-type: none;
+        }
+
+        &-link {
+            font-size: 1.6rem;
+            font-weight: 300;
+
+            padding: 15px 30px;
+            border-radius: 30px;
+
+            @include transition(background-color);
+
+            &:hover {
+                background-color: #fff;
+            }
+
+        }
+
+    }
+
+}

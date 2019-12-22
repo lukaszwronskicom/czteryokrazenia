@@ -1,0 +1,119 @@
+@mixin flex( $direction: null, $flex-wrap: null, $align-items: null, $justify-content: null, $display: null){
+
+    @if $display != null {
+        display: $display;
+    }
+
+    @if $direction != null {
+        flex-direction: $direction;
+    }
+
+    @if $flex-wrap != null {
+        flex-wrap: $flex-wrap;
+    }
+
+    @if $align-items != null {
+        align-items: $align-items;
+    }
+
+    @if $justify-content != null {
+        justify-content: $justify-content;
+    }
+
+}
+
+@mixin center($position) {
+    position: absolute;
+
+    @if $position == vertical {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @else if $position == horizontal {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+    @else if $position == both {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+    @else if $position == fixed {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate( -50%, -50% );
+    }
+}
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation == vertical {
+        background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == horizontal {
+        background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+        background: linear-gradient($orientation, $start-color, $end-color);
+    }
+
+}
+
+@mixin media($size) {
+    $fhd: "(min-width: 1600px)";
+    $laptop: "(min-width: 1360px)";
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px)";
+    $mobile: "(min-width: 480px)";
+
+    @if $size == fhd {
+        @media only screen and #{$fhd} {
+            @content;
+        }
+    }
+    @if $size == laptop {
+        @media only screen and #{$laptop} {
+            @content;
+        }
+    }
+    @if $size == desktop {
+        @media only screen and #{$desktop} {
+            @content;
+        }
+    }
+    @else if $size == tablet {
+        @media only screen and #{$tablet} {
+            @content;
+        }
+    }
+    @else if $size == mobile {
+        @media only screen and #{$mobile} {
+            @content;
+        }
+    }
+}
+
+@mixin transition( $transition: null, $second-transition: null, $time: .2s, $effect: ease-in-out ){
+    
+    @if $second-transition != null {
+        transition: $time $transition, $second-transition $effect;
+
+    } @else {
+        transition: $time $transition $effect;
+
+    }
+
+}
+
+@mixin radius($radius: 50px){
+    border-radius: $radius;
+
+}

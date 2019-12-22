@@ -1,0 +1,134 @@
+.container {
+
+    width: calc( 100% - 30px );
+    margin: 0 15px;
+    padding: 15px 0;
+    box-sizing: border-box;
+    align-items: center;
+
+    @include media(tablet) {
+        width: 760px;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+
+    @include media(desktop) {
+        width: 960px;
+        padding: 5rem 0;    
+        
+    }
+
+    @include media(laptop) {
+        width: 1200px;
+
+    }
+
+    @include media(fhd) {
+        width: 1300px;
+
+    }
+
+    &-row {
+        @include flex(column, null, center, center, flex);
+        padding: 0;
+        margin: 0;
+        width: 100%; 
+
+        &-reverse {
+            @include flex(column-reverse);
+        }
+
+        @include media(desktop) {
+            @include flex(row);
+
+        }
+
+    }
+
+    &-fluid {    
+        padding: 3rem 15px;
+
+        @include media(tablet) {
+            padding: 2rem;
+
+        }
+    
+        @include media(desktop) {
+            padding: 2rem 5rem;
+            
+        }
+    
+        @include media(laptop) {
+            padding: 5rem 12rem;
+            
+    
+        }
+
+    }
+
+    &-black {
+        background-color: $black;
+        color: $white;
+    }
+
+    &-start {
+        align-items: flex-start;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-hero {
+        background: 
+        url(../images/mateusz-dziopa-mikrofon.jpg) right bottom no-repeat, 
+        url(../images/ewelina-wloch-aparat.jpg) left bottom no-repeat;
+
+    }
+
+    @include media(tablet) {
+        
+        &-no-margin {
+            padding: 1rem 0;
+        }
+
+    }
+
+    @include media(desktop) {
+        
+        &-no-margin {
+            padding: 1rem 0;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 782px) {
+
+    .container {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
+
+.section {
+
+    &-about-me {
+        padding: 5rem 0 0 0;
+        margin-bottom: 0!important;
+
+        @include media(laptop) {
+            align-items: flex-end;
+
+            > div:first-of-type {
+                display: flex;
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,24 @@
+.page {
+
+    &-container {
+        max-width: 960px;
+        text-align: left;
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display';
+            font-size: 5rem;
+            margin: 0;
+            padding: 0;
+    
+        }
+
+    }
+
+    &-title {
+        text-align: center;
+
+    }
+    
+}

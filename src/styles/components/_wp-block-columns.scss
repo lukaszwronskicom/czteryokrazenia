@@ -1,0 +1,16 @@
+
+
+@include media( tablet ) {
+
+    .wp-block-columns {
+        @include flex(row, nowrap, null, null, flex);
+
+        & > div {
+            flex: 1;
+
+        }
+        
+    }
+
+
+}

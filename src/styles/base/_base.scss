@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900i&display=swap');
+html,
+body {
+    font-size: 10px;
+    text-rendering: optimizeLegibility;
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+    background-color: $color-1;
+    color: #000;
+    overflow-x: hidden;
+}
+:root {
+    font-size: 10px;
+}
+:active, :focus { 
+    outline: none; 
+    -moz-outline-style: none; 
+}    
+::-webkit-scrollbar-track{
+    background-color: $black;
+}
+::-webkit-scrollbar{
+    width: 15px;
+    background-color: #fff;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #fff;
+}
+.topSeperate {
+    height: 120px;
+    
+    @media all and (min-width:1200px) {
+        height: 120px;
+
+    }
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    
+}
+
+/*
+
+    LazyLoad
+
+*/
+
+.lazy {
+    @include transition( null, opacity, null);
+    opacity: 0;
+
+    &.loaded {
+        opacity: 1;
+    }
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+::selection {
+    background-color: $black;
+    color:$white;
+}
+
+::-moz-selection {
+    background-color: $black;
+    color:$white;
+}

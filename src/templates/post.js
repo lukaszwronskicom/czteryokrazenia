@@ -1,0 +1,85 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+
+export const BlogPostTemplate = ({
+  content,
+  categories,
+  tags,
+  title,
+  date,
+  author,
+}) => {
+  return (
+
+    <div class="container page-container">
+      <h1 class="page-title">{title}</h1>
+      <div class="page-content" dangerouslySetInnerHTML={{ __html: content }} /> 
+    </div>
+
+  )
+}
+
+BlogPostTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  title: PropTypes.string,
+}
+
+const BlogPost = ({ data }) => {
+  const { wordpressPost: post } = data
+
+  return (
+    <Layout>
+      <Helmet title={`${post.title} | Blog`} />
+      <BlogPostTemplate
+        content={post.content}
+        categories={post.categories}
+        tags={post.tags}
+        title={post.title}
+        date={post.date}
+        author={post.author}
+      />
+    </Layout>
+  )
+}
+
+BlogPost.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
+}
+
+export default BlogPost
+
+export const pageQuery = graphql`
+  fragment PostFields on wordpress__POST {
+    id
+    slug
+    content
+    date(formatString: "MMMM DD, YYYY")
+    title
+  }
+  query BlogPostByID($id: String!) {
+    wordpressPost(id: { eq: $id }) {
+      id
+      title
+      slug
+      content
+      date(formatString: "MMMM DD, YYYY")
+      categories {
+        name
+        slug
+      }
+      tags {
+        name
+        slug
+      }
+      author {
+        name
+        slug
+      }
+    }
+  }
+`

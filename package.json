@@ -1,44 +1,60 @@
 {
-  "name": "gatsby-starter-default",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "name": "gatsby-starter-wordpress",
+  "description": "Gatsby v2 starter for WordPress",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "GatsbyCentral.com",
   "dependencies": {
-    "gatsby": "^2.18.12",
-    "gatsby-image": "^2.2.34",
-    "gatsby-plugin-manifest": "^2.2.31",
-    "gatsby-plugin-offline": "^3.0.27",
-    "gatsby-plugin-react-helmet": "^3.1.16",
-    "gatsby-plugin-sharp": "^2.3.5",
-    "gatsby-source-filesystem": "^2.1.40",
-    "gatsby-transformer-sharp": "^2.3.7",
-    "prop-types": "^15.7.2",
+    "bulma": "^0.7.5",
+    "gatsby-awesome-pagination": "^0.3.3",
+    "gatsby-image": "^2.2.37",
+    "gatsby-plugin-lodash": "^3.1.7",
+    "gatsby-plugin-netlify": "^2.1.12",
+    "gatsby-plugin-purgecss": "^4.0.1",
+    "gatsby-plugin-react-helmet": "^3.1.7",
+    "gatsby-plugin-sass": "^2.1.26",
+    "gatsby-remark-images": "^3.1.21",
+    "gatsby-source-filesystem": "^2.1.22",
+    "gatsby-source-graphql": "^2.1.29",
+    "gatsby-source-wordpress": "^3.1.31",
+    "gatsby-transformer-remark": "^2.6.22",
+    "graphql": "^14.5.8",
+    "ink": "^2.6.0",
+    "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3",
+    "prop-types": "^15.6.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
-  },
-  "devDependencies": {
-    "prettier": "^1.19.1"
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1",
+    "sharp": "^0.23.4",
+    "uuid": "^3.3.3"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
+  "main": "n/a",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "start": "npm run develop",
+    "clean": "rimraf .cache public",
+    "build": "npm run clean && gatsby build",
+    "develop": "npm run clean && gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "gatsby": "^2.18.16",
+    "gh-pages": "^2.1.1",
+    "lodash": "^4.17.15",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
   }
 }
