@@ -1,6 +1,7 @@
 // Libraries and helpers
 // ---------
 @import 'animate/animate';
+@import 'helpers/align';
 @import 'helpers/helpers';
 
 // Variables
@@ -27,4 +28,4 @@
 @import "components/header";
 @import "components/page";
 @import "components/nav";
-@import "components/wp-block-columns";
+@import "components/wp-block";

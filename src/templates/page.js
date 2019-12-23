@@ -2,10 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import SEO from "../components/seo"
 
 export const PageTemplate = ({ title, content }) => {
   return (
-      <div dangerouslySetInnerHTML={{ __html: content }} /> 
+      <div className="container page-container" dangerouslySetInnerHTML={{ __html: content }} /> 
   )
 }
 
@@ -17,9 +18,11 @@ PageTemplate.propTypes = {
 const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
+  console
   return (
     <Layout>
-      <PageTemplate title={page.title} content={page.content} />
+      <SEO title={data.wordpressPage.title} />
+      <PageTemplate title={data.wordpressPage.title} content={page.content} />
     </Layout>
   )
 }
