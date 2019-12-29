@@ -9,6 +9,11 @@ const TemplateWrapper = ({ children }) => (
     <main>
       {children}
     </main>
+    <footer className="footer">
+      <div className="container">
+        
+      </div>
+    </footer>
   </div>
 )
 

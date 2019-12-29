@@ -80,9 +80,41 @@
     }
 
     &-hero {
-        background: 
-        url(../images/mateusz-dziopa-mikrofon.png) right center no-repeat, 
-        url(../images/ewelina-wloch-aparat.png) left center no-repeat;
+        display: block;    
+        position: relative;
+
+        & > div {
+            position: relative;
+
+        }
+
+        &::before {
+            content: "";
+            background: 
+            url(../images/mateusz-dziopa-mikrofon.png) right center no-repeat, 
+            url(../images/ewelina-wloch-aparat.png) left center no-repeat;
+            background-size: 120px;
+            opacity: 0.3;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+            z-index: 0; 
+
+        }
+
+        @include media(tablet) {
+
+            &::before {
+                opacity: 1;
+                background-size: auto;
+
+            }
+
+        }
 
         @include media(fhd) {
             padding: 4rem 0;

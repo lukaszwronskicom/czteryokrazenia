@@ -26,8 +26,15 @@ const Page = ({ data }) => {
   console
   return (
     <Layout>
-      <SEO title={data.wordpressPage.yoast_title} />
-      <PageTemplate title={data.wordpressPage.title} content={page.content} gutenbergPage={data.wordpressPage.acf.is_gutenberg_page} />
+      <SEO 
+        title={data.wordpressPage.yoast_title}
+        metaDescription={data.wordpressPage.yoast_meta}
+      />
+      <PageTemplate 
+        title={data.wordpressPage.title} 
+        content={page.content} 
+        gutenbergPage={data.wordpressPage.acf.is_gutenberg_page} 
+      />
     </Layout>
   )
 }
@@ -39,11 +46,15 @@ Page.propTypes = {
 export default Page
 
 export const pageQuery = graphql`
-  query PageById($id: String!) {
-    wordpressPage(id: { eq: $id }) {
+  query FrontPage {
+    wordpressPage(acf: {front_page: {eq: true}}) {
       title
       content
       yoast_title
+      yoast_meta {
+        name
+        property
+      }
       acf {
         is_gutenberg_page
       }
