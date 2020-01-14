@@ -15,6 +15,7 @@ exports.createPages = ({ actions, graphql }) => {
         edges {
           node {
             id
+            wordpress_id
             slug
             status
           }
@@ -47,6 +48,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: pageTemplate,
           context: {
             id: page.id,
+            wordpressid: page.wordpress_id
           },
         })
       })
@@ -90,6 +92,7 @@ exports.createPages = ({ actions, graphql }) => {
           component: postTemplate,
           context: {
             id: post.id,
+            wordpressid: post.wordpress_id
           },
         })
       })

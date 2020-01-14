@@ -27,8 +27,8 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SEO 
-        title={data.wordpressPage.yoast_title}
-        //metaDescription={data.wordpressPage.yoast_meta.map()}
+        title={data.wordpressPage.yoast_meta.yoast_wpseo_title} 
+        metaDescription={data.wordpressPage.yoast_meta.yoast_wpseo_metadesc} 
       />
       <PageTemplate 
         title={data.wordpressPage.title} 
@@ -50,10 +50,10 @@ export const pageQuery = graphql`
     wordpressPage(acf: {front_page: {eq: true}}) {
       title
       content
-      yoast_title
       yoast_meta {
-        name
-        property
+        yoast_wpseo_title
+        yoast_wpseo_metadesc
+        yoast_wpseo_canonical
       }
       acf {
         is_gutenberg_page

@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescription, twitterTitle, twitterDescription, opengraphImage, twitterImage }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -24,6 +24,30 @@ function SEO({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
+
+  if( "" === opengraphTitle ) {
+    opengraphTitle = title
+  }
+  if( "" === opengraphDescription ) {
+    opengraphDescription = description
+  }
+  if( "" === opengraphDescription ) {
+    opengraphDescription = description
+  }
+  if( "" === twitterTitle ) {
+    twitterTitle = description
+  }
+  if( "" === twitterDescription ) {
+    twitterDescription = description
+  }
+  if( "" === twitterImage &&  "" !== opengraphImage ) {
+    twitterImage = opengraphImage
+  }
+  if( "" !== twitterImage &&  "" === opengraphImage ) {
+    opengraphImage = twitterImage
+  }
+
+
 
   return (
     <Helmet
@@ -39,15 +63,23 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: opengraphTitle,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: opengraphDescription,
+        },
+        {
+          property: `og:locale`,
+          content: lang
         },
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: opengraphImage,
         },
         {
           name: `twitter:card`,
@@ -59,11 +91,15 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: twitterTitle,
+        },
+        {
+          name: `twitter:image`,
+          content: twitterImage,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: twitterDescription,
         },
       ].concat(meta)}
     />
