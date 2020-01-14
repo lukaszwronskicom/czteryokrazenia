@@ -53,24 +53,23 @@
     &-icon {
         position: fixed;
         top: 0;
-        left: 50%;
-
-        transform: translateX(-50%);
+        left: 0;
 
         width: 100%;
         height: 80px;
 
         padding: 30px;
 
-        z-index: 2;
+        z-index: 3;
 
         background-color: #dadada;
 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         &-bars {
-            position: absolute;
-            left: 50%;
-            top: 38px;
-            transform: translateX(-50%);
+            position: relative;
 
             width: 35px;
             height: 2px;

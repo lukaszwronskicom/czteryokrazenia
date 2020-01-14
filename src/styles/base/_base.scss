@@ -54,16 +54,6 @@ a {
 
 */
 
-.lazy {
-    @include transition( null, opacity, null);
-    opacity: 0;
-
-    &.loaded {
-        opacity: 1;
-    }
-
-}
-
 img {
     max-width: 100%;
     height: auto;

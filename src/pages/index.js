@@ -28,7 +28,7 @@ const Page = ({ data }) => {
     <Layout>
       <SEO 
         title={data.wordpressPage.yoast_title}
-        metaDescription={data.wordpressPage.yoast_meta}
+        //metaDescription={data.wordpressPage.yoast_meta.map()}
       />
       <PageTemplate 
         title={data.wordpressPage.title} 

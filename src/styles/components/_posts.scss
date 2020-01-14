@@ -1,0 +1,43 @@
+.posts {
+    @include flex(column, wrap, center, center, flex);
+
+    @include media(mobile) {
+        @include flex(row, wrap, center, center, flex);
+    
+
+    }
+
+}
+
+.post {
+
+    &-card {
+        display: block;
+
+        @include media(mobile) { 
+            width: calc( 50% - 30px );
+            margin: 15px;
+            
+        }
+
+        @include media(desktop) { 
+            width: calc( 30% - 30px );
+            margin: 15px;
+            
+        }
+
+        @include transition(transform);
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &-title {
+            margin: 15px 0;
+            text-align: center;
+
+        }
+
+    }
+}
+

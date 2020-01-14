@@ -29,4 +29,7 @@
 @import "components/page";
 @import "components/nav";
 @import "components/wp-block";
-@import "components/posts";
+
+.editor-styles-wrapper > div {
+    background: #eaeaea;
+}
