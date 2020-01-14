@@ -1,0 +1,9 @@
+.column {
+    @include flex(column, wrap, center, center, flex);
+
+    @include media(desktop) {
+        @include flex(row, nowrap, center, space-between);
+
+    }
+
+}

@@ -1,8 +1,8 @@
 .posts {
-    @include flex(column, wrap, center, center, flex);
+    @include flex(column, wrap, flex-start, center, flex);
 
     @include media(mobile) {
-        @include flex(row, wrap, center, center, flex);
+        @include flex(row, wrap, null, null, flex);
     
 
     }
