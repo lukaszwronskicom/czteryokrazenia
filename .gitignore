@@ -16,3 +16,4 @@ netlify.toml
 renovate.json
 gatsby-config.js
 yarn.lock
+tmp/
