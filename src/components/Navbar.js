@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
+import logo from '../images/favicon.png'
 
 class Navbar extends React.Component  {
   
@@ -60,6 +61,9 @@ class Navbar extends React.Component  {
                 <div className="container">
                   {data.wpgraphql.menus.nodes.map(nodeMenu => (
                     <nav key={nodeMenu.id} className="nav">
+                      <div class="nav-logo">
+                        <img src={logo} alt="Cztery Okrążenia z życia" />
+                      </div>
                       <div ref={this.icon} className="nav-icon" onClick={() => this.toggleMenu() }>
                         <div className="nav-icon-bars">
                         </div>
