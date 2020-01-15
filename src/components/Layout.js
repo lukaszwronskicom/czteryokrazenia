@@ -11,7 +11,7 @@ const TemplateWrapper = ({ children }) => (
     </main>
     <footer className="footer">
       <div className="container">
-        <div class="column">
+        <div className="column">
           <div>
             <p>Projekt fotograficzno-dziennikarski autorstwa Eweliny Włoch i Mateusza Dziopy</p>
           </div>

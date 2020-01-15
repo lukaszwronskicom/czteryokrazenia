@@ -23,19 +23,18 @@ PageTemplate.propTypes = {
 const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
-  console
+
   return (
     <Layout>
-      <SEO metaDesc
+      <SEO 
         title={data.wpgraphql.pageBy.seo.title} 
-        metaDescription={data.wpgraphql.pageBy.seo.metaDesc} 
+        description={data.wpgraphql.pageBy.seo.metaDesc} 
         opengraphTitle={data.wpgraphql.pageBy.seo.opengraphTitle}
         opengraphDescription={data.wpgraphql.pageBy.seo.opengraphDescription}
         twitterTitle={data.wpgraphql.pageBy.seo.twitterTitle}
         twitterDescription={data.wpgraphql.pageBy.seo.twitterDescription}
-        opengraphImage={data.wpgraphql.pageBy.seo.opengraphImage.sourceUrl}
-        twitterImage={data.wpgraphql.pageBy.seo.twitterImage.sourceUrl}
-      />
+
+        />
       <PageTemplate 
         title={data.wordpressPage.title} 
         content={page.content} 
@@ -76,6 +75,9 @@ export const pageQuery = graphql`
           twitterImage {
             sourceUrl(size: LARGE)
           }
+        }
+        featuredImage {
+          sourceUrl(size: LARGE)
         }
       }
     }

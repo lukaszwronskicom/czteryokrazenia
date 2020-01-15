@@ -61,7 +61,7 @@ class Navbar extends React.Component  {
                 <div className="container">
                   {data.wpgraphql.menus.nodes.map(nodeMenu => (
                     <nav key={nodeMenu.id} className="nav">
-                      <div class="nav-logo">
+                      <div className="nav-logo">
                         <img src={logo} alt="Cztery Okrążenia z życia" />
                       </div>
                       <div ref={this.icon} className="nav-icon" onClick={() => this.toggleMenu() }>

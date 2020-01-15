@@ -60,6 +60,7 @@ exports.createPages = ({ actions, graphql }) => {
             edges {
               node {
                 id
+                wordpress_id
                 slug
                 status
               }
@@ -113,6 +114,7 @@ exports.createPages = ({ actions, graphql }) => {
             edges {
               node {
                 id
+                wordpress_id
                 name
                 slug
               }
@@ -148,6 +150,7 @@ exports.createPages = ({ actions, graphql }) => {
             edges {
               node {
                 id
+                wordpress_id
                 name
                 slug
               }
@@ -184,6 +187,7 @@ exports.createPages = ({ actions, graphql }) => {
             edges {
               node {
                 id
+                wordpress_id
                 slug
               }
             }

@@ -8,9 +8,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby" 
 
-function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescription, twitterTitle, twitterDescription, opengraphImage, twitterImage }) {
+function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescription, twitterTitle, twitterDescription, opengraphImage, twitterImage, featuredImage }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -25,30 +25,6 @@ function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescript
 
   const metaDescription = description || site.siteMetadata.description
 
-  if( "" === opengraphTitle ) {
-    opengraphTitle = title
-  }
-  if( "" === opengraphDescription ) {
-    opengraphDescription = description
-  }
-  if( "" === opengraphDescription ) {
-    opengraphDescription = description
-  }
-  if( "" === twitterTitle ) {
-    twitterTitle = description
-  }
-  if( "" === twitterDescription ) {
-    twitterDescription = description
-  }
-  if( "" === twitterImage &&  "" !== opengraphImage ) {
-    twitterImage = opengraphImage
-  }
-  if( "" !== twitterImage &&  "" === opengraphImage ) {
-    opengraphImage = twitterImage
-  }
-
-
-
   return (
     <Helmet
       htmlAttributes={{
@@ -59,15 +35,15 @@ function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescript
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: description,
         },
         {
           property: `og:title`,
-          content: opengraphTitle,
+          content: ("" == opengraphTitle) ? title : opengraphTitle,
         },
         {
           property: `og:description`,
-          content: opengraphDescription,
+          content: ("" == opengraphDescription) ? metaDescription : opengraphDescription,
         },
         {
           property: `og:locale`,
@@ -79,7 +55,7 @@ function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescript
         },
         {
           property: `og:image`,
-          content: opengraphImage,
+          content: ("" === opengraphImage) ? featuredImage : opengraphImage,
         },
         {
           name: `twitter:card`,
@@ -91,15 +67,16 @@ function SEO({ description, lang, meta, title, opengraphTitle, opengraphDescript
         },
         {
           name: `twitter:title`,
-          content: twitterTitle,
+          content: ("" == twitterTitle) ? title : twitterTitle,
         },
         {
           name: `twitter:image`,
-          content: twitterImage,
+          content: ("" === twitterImage) ? featuredImage : twitterImage,
         },
         {
           name: `twitter:description`,
-          content: twitterDescription,
+          content: ("" == twitterDescription) ? metaDescription : twitterDescription,
+
         },
       ].concat(meta)}
     />

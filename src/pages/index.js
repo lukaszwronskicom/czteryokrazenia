@@ -27,8 +27,12 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SEO 
-        title={data.wordpressPage.yoast_meta.yoast_wpseo_title} 
-        metaDescription={data.wordpressPage.yoast_meta.yoast_wpseo_metadesc} 
+        title={data.wpgraphql.pageBy.seo.title} 
+        description={data.wpgraphql.pageBy.seo.metaDesc} 
+        opengraphTitle={data.wpgraphql.pageBy.seo.opengraphTitle}
+        opengraphDescription={data.wpgraphql.pageBy.seo.opengraphDescription}
+        twitterTitle={data.wpgraphql.pageBy.seo.twitterTitle}
+        twitterDescription={data.wpgraphql.pageBy.seo.twitterDescription}
       />
       <PageTemplate 
         title={data.wordpressPage.title} 
@@ -57,6 +61,27 @@ export const pageQuery = graphql`
       }
       acf {
         is_gutenberg_page
+      }
+    }
+    wpgraphql {
+      pageBy(pageId: 23) {
+        seo {
+          title
+          metaDesc
+          opengraphTitle
+          opengraphDescription
+          twitterTitle
+          twitterDescription
+          opengraphImage {
+            sourceUrl(size: LARGE)
+          }
+          twitterImage {
+            sourceUrl(size: LARGE)
+          }
+        }
+        featuredImage {
+          sourceUrl(size: LARGE)
+        }
       }
     }
   }
