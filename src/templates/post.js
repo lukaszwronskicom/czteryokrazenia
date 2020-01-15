@@ -30,9 +30,42 @@ BlogPostTemplate.propTypes = {
 const BlogPost = ({ data }) => {
   const { wordpressPost: post } = data
 
+  let featuredImageSourceUrl
+  let opengraphImageSourceUrl
+  let twitterImageSourceUrl
+  
+  if( data.wpgraphql.pageBy.featuredImage == null ) {
+    featuredImageSourceUrl = "";
+  } else {
+    featuredImageSourceUrl = data.wpgraphql.pageBy.featuredImage.sourceUrl;
+  } 
+
+  if( data.wpgraphql.pageBy.seo.opengraphImage == null ) {
+    opengraphImageSourceUrl = "";
+  } else {
+    opengraphImageSourceUrl = data.wpgraphql.pageBy.seo.opengraphImage.sourceUrl;
+  } 
+
+  if( data.wpgraphql.pageBy.seo.twitterImage == null ) {
+    twitterImageSourceUrl = "";
+  } else {
+    twitterImageSourceUrl = data.wpgraphql.pageBy.seo.twitterImage.sourceUrl;
+  } 
+
   return (
     <Layout>
       <Helmet title={`${post.title} | Blog`} />
+      <SEO 
+        title={data.wpgraphql.postBy.seo.title} 
+        description={data.wpgraphql.postBy.seo.metaDesc} 
+        featuredImage={featuredImageSourceUrl}
+        opengraphTitle={data.wpgraphql.postBy.seo.opengraphTitle}
+        opengraphDescription={data.wpgraphql.postBy.seo.opengraphDescription}
+        opengraphImage={opengraphImageSourceUrl}
+        twitterTitle={data.wpgraphql.postBy.seo.twitterTitle}
+        twitterDescription={data.wpgraphql.postBy.seo.twitterDescription}
+        twitterImage={twitterImageSourceUrl}
+      />
       <BlogPostTemplate
         content={post.content}
         categories={post.categories}
@@ -61,7 +94,7 @@ export const pageQuery = graphql`
     date(formatString: "MMMM DD, YYYY")
     title
   }
-  query BlogPostByID($id: String!) {
+  query BlogPostByID($id: String!, $wordpressid: Int!) {
     wordpressPost(id: { eq: $id }) {
       id
       title
@@ -79,6 +112,28 @@ export const pageQuery = graphql`
       author {
         name
         slug
+      }
+    }
+    
+    wpgraphql {
+      postBy( postId: $wordpressid ) {
+        seo {
+          title
+          metaDesc
+          opengraphTitle
+          opengraphDescription
+          twitterTitle
+          twitterDescription
+          opengraphImage {
+            sourceUrl(size: LARGE)
+          }
+          twitterImage {
+            sourceUrl(size: LARGE)
+          }
+        }
+        featuredImage {
+          sourceUrl(size: LARGE)
+        }
       }
     }
   }

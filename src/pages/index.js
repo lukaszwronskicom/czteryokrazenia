@@ -23,16 +23,40 @@ PageTemplate.propTypes = {
 const Page = ({ data }) => {
   const { wordpressPage: page } = data
 
-  console
+  let featuredImageSourceUrl
+  let opengraphImageSourceUrl
+  let twitterImageSourceUrl
+  
+  if( data.wpgraphql.pageBy.featuredImage == null ) {
+    featuredImageSourceUrl = "";
+  } else {
+    featuredImageSourceUrl = data.wpgraphql.pageBy.featuredImage.sourceUrl;
+  } 
+
+  if( data.wpgraphql.pageBy.seo.opengraphImage == null ) {
+    opengraphImageSourceUrl = "";
+  } else {
+    opengraphImageSourceUrl = data.wpgraphql.pageBy.seo.opengraphImage.sourceUrl;
+  } 
+
+  if( data.wpgraphql.pageBy.seo.twitterImage == null ) {
+    twitterImageSourceUrl = "";
+  } else {
+    twitterImageSourceUrl = data.wpgraphql.pageBy.seo.twitterImage.sourceUrl;
+  } 
+  
   return (
     <Layout>
       <SEO 
         title={data.wpgraphql.pageBy.seo.title} 
         description={data.wpgraphql.pageBy.seo.metaDesc} 
+        featuredImage={featuredImageSourceUrl}
         opengraphTitle={data.wpgraphql.pageBy.seo.opengraphTitle}
         opengraphDescription={data.wpgraphql.pageBy.seo.opengraphDescription}
+        opengraphImage={opengraphImageSourceUrl}
         twitterTitle={data.wpgraphql.pageBy.seo.twitterTitle}
         twitterDescription={data.wpgraphql.pageBy.seo.twitterDescription}
+        twitterImage={twitterImageSourceUrl}
       />
       <PageTemplate 
         title={data.wordpressPage.title} 
