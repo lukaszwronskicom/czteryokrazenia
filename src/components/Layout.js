@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children }) => (
             <p>Projekt fotograficzno-dziennikarski autorstwa Eweliny Włoch i Mateusza Dziopy</p>
           </div>
           <div>
-            <p>Projekt i wykonanie <a href="https://lukaszwronski.com" title="Łukasz Wroński | Programista WordPress Wrocław">Szablony Wordpress budowane od podstaw</a></p>
+            <p>Projekt i wykonanie <a href="https://lukaszwronski.com" title="Łukasz Wroński | Programista WordPress Wrocław">Łukasz Wroński</a></p>
           </div>
         </div>
       </div>
