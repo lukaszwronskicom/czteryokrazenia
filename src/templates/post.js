@@ -34,22 +34,22 @@ const BlogPost = ({ data }) => {
   let opengraphImageSourceUrl
   let twitterImageSourceUrl
   
-  if( data.wpgraphql.pageBy.featuredImage == null ) {
+  if( data.wpgraphql.postBy.featuredImage == null ) {
     featuredImageSourceUrl = "";
   } else {
-    featuredImageSourceUrl = data.wpgraphql.pageBy.featuredImage.sourceUrl;
+    featuredImageSourceUrl = data.wpgraphql.postBy.featuredImage.sourceUrl;
   } 
 
-  if( data.wpgraphql.pageBy.seo.opengraphImage == null ) {
+  if( data.wpgraphql.postBy.seo.opengraphImage == null ) {
     opengraphImageSourceUrl = "";
   } else {
-    opengraphImageSourceUrl = data.wpgraphql.pageBy.seo.opengraphImage.sourceUrl;
+    opengraphImageSourceUrl = data.wpgraphql.postBy.seo.opengraphImage.sourceUrl;
   } 
 
-  if( data.wpgraphql.pageBy.seo.twitterImage == null ) {
+  if( data.wpgraphql.postBy.seo.twitterImage == null ) {
     twitterImageSourceUrl = "";
   } else {
-    twitterImageSourceUrl = data.wpgraphql.pageBy.seo.twitterImage.sourceUrl;
+    twitterImageSourceUrl = data.wpgraphql.postBy.seo.twitterImage.sourceUrl;
   } 
 
   return (
