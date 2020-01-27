@@ -106,15 +106,8 @@
         &--active {
 
             .nav-icon-bars {
-                background-color: #f2f2f2;
                 transform: rotate(225deg);
                 transition: transform .22s .12s ease-in-out;
-
-                &:before,
-                &:after {
-                    background-color: #f2f2f2;
-
-                }
 
                 &:before {
                     top: 0;
