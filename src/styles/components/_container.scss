@@ -106,12 +106,24 @@
 
         }
 
-        @include media(tablet) {
+        @include media(desktop) {
 
             &::before {
                 opacity: 1;
                 background-size: auto;
 
+            }
+
+            .container {
+                max-width: 600px;
+            }
+
+        }
+
+        @include media(laptop) {
+
+            .container {
+                max-width: 800px;
             }
 
         }
