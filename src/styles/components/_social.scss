@@ -1,0 +1,15 @@
+.social {
+
+    &-column {
+        @include flex(row, null, center, center, flex);
+
+        a {
+            display: block;
+            margin: 5px;
+            padding: 15px;
+            
+        }
+
+    }
+
+}
