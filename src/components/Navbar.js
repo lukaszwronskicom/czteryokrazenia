@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import logo from '../images/favicon.png'
+import { window, document } from 'browser-monads';
 
 class Navbar extends React.Component  {
   
@@ -27,7 +28,6 @@ class Navbar extends React.Component  {
   }
 
   useEffect(self) {
-    console.log(self);
     document.addEventListener('scroll', function() {
         if(window.scrollY > 100){
           self.menu.current.classList.value = "nav-menu nav-menu-scroll";
