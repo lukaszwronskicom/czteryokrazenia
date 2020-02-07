@@ -1,7 +1,8 @@
 .page {
 
     &-container {
-        max-width: 960px;
+        max-width: 760px;
+
         text-align: left;
 
         h1,
@@ -26,6 +27,11 @@
 
         strong {
             font-weight: 500;
+        }
+
+        @include media(laptop) {
+            max-width: 960px;
+
         }
 
     }
