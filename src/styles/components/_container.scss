@@ -66,6 +66,11 @@
 
     }
 
+    &-gray {
+        background-color: #f3f3f3;
+        color: #000;
+    }
+
     &-black {
         background-color: $black;
         color: $white;
@@ -128,17 +133,36 @@
 
         }
 
+        @include media(laptop) {
+
+            .container {
+                max-width: 800px;
+
+            }
+
+        }
+
         @include media(fhd) {
             padding: 4rem 0;
 
+            .container {
+                max-width: 960px;
+
+            }
+
         }
+
+    }
+
+    &-no-margin {
+        margin: 0 !important;
 
     }
 
     @include media(tablet) {
         
         &-no-margin {
-            padding: 1rem 0;
+            padding: 4rem 0;
         }
 
     }
@@ -146,7 +170,7 @@
     @include media(desktop) {
         
         &-no-margin {
-            padding: 1rem 0;
+            padding: 4rem 0;
         }
 
     }
