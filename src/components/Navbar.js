@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import logo from '../images/favicon.png'
+import logo from '../images/favicon-50.png'
 import { window, document } from 'browser-monads';
 
 class Navbar extends React.Component  {
@@ -76,7 +76,7 @@ class Navbar extends React.Component  {
                     <nav key={nodeMenu.id} className="nav">
                       <div className="nav-logo">
                         <a href="https://czteryokrazenia.pl">
-                          <img src={logo} alt="Cztery Okrążenia z życia" />
+                          <img className="lazyload" data-src={logo} alt="Cztery Okrążenia z życia" />
                         </a>
                       </div>
                       <div ref={this.icon} className="nav-icon" onClick={() => this.toggleMenu() }>
