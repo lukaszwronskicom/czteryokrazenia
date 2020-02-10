@@ -16,12 +16,12 @@ class Navbar extends React.Component  {
   toggleMenu() {
 
     if( "nav-icon" == this.icon.current.classList ) {
-      //this.icon.current.classList.value = "nav-icon nav-icon--active";
-      //this.menu.current.classList.value = "nav-menu nav-menu--active";
+      this.icon.current.classList.value = "nav-icon nav-icon--active";
+      this.menu.current.classList.value = "nav-menu nav-menu--active";
 
     } else {
-      //this.icon.current.classList.value = "nav-icon";
-      //this.menu.current.classList.value = "nav-menu";
+      this.icon.current.classList.value = "nav-icon";
+      this.menu.current.classList.value = "nav-menu";
 
     }
 
