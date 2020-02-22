@@ -5,7 +5,14 @@ const { paginate } = require('gatsby-awesome-pagination')
 
 const getOnlyPublished = edges =>
   _.filter(edges, ({ node }) => node.status === 'publish')
-
+  
+exports.onCreateWebpackConfig = ({ actions, stage }) => {
+  if (stage === 'build-javascript') {
+    actions.setWebpackConfig({
+      devtool: false,
+    })
+  }
+};
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 

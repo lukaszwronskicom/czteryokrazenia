@@ -25,9 +25,6 @@
 
         }
 
-        strong {
-            font-weight: 500;
-        }
 
         @include media(laptop) {
             max-width: 960px;

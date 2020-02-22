@@ -17,3 +17,6 @@ renovate.json
 gatsby-config.js
 yarn.lock
 tmp/
+wp-generate.log
+logs/
+public_html/
