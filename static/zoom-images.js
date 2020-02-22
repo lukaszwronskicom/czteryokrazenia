@@ -68,5 +68,8 @@
 
     }
 
-    var zoomImages = new ZoomImages();
-    zoomImages.clickListener();
+    if( document.querySelectorAll(".image-zoom-container").length > 0 ) {
+        var zoomImages = new ZoomImages();
+        zoomImages.clickListener();
+
+    }
