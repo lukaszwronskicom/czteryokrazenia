@@ -42,3 +42,13 @@
     }
 
 }
+
+img[data-src] {
+    @include transition(opacity);
+    opacity: 0;
+
+    &.lazyloaded {
+        opacity: 1;
+    }
+
+}
