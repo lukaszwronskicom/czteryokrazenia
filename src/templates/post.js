@@ -15,9 +15,9 @@ export const BlogPostTemplate = ({
 }) => {
   return (
 
-    <div class="container page-container">
-      <h1 class="page-title">{title}</h1>
-      <div class="page-content" dangerouslySetInnerHTML={{ __html: content }} /> 
+    <div className="container page-container">
+      <h1 className="page-title">{title}</h1>
+      <div className="page-content" dangerouslySetInnerHTML={{ __html: content }} /> 
     </div>
 
   )

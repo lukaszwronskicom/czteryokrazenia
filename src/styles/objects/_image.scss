@@ -1,0 +1,44 @@
+.image {
+
+    &-zoom {
+        @include transition(opacity);
+
+
+        &:hover {
+            cursor: zoom-in; 
+            opacity: 0.5;
+
+        }
+
+        &-container {
+            position: relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 48px;
+                height: 48px;
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD8UlEQVRo3u2az2scZRjHn+/3nXlndsjK7LK7lG4CG2guUoMUL4qRRFP0DyieGm8LpXjIggT/AQmeRDx5KFJ6yKFID4F6yCGWnkRCqJVKD1K09iDRbtGYGMru68G3paTzbjKzM/kBfWAO+z7M93k+z7zvzjPvjEgKa7fb1FqfJrkA4BqAuwD+FhEjIgZAF8BtAEskLwZB0EqjX5iVy+WQ5AUAt58ku98DwE2l1Llms8kDT7zT6VAp9b6I/JI28QSQdc/z3jiw5MMwjAFcHTbxXUeP5GKlUvEKTV5r3QLwU87JP3s1vimVSiOFJS8ppwyAbQA7Kc+5EUVRlGvydtrsWXkAayQ/8n3/tXq9/jSJOI6rnue9RfITAPf2oXN1fHw8n8Xd6XS415y3C3F6P3qNRsNTSp0XkQeDNJVS87kA2H8bZyCSn8ZxrNPqhmFYBbA8QHtba31qqOTL5XIoA+a9UurDYfRrtZpH8rK4r+zXQwGQvDCo8kOJW6tUKh6AFVcc3/cnMwm322267rAA1rNMG5cFQXBSRLqOWF9mEtVan3ZVZb8LNo2RXHDE+7Ner6cvlksQwFreyYuIRFH0koj84yjYm6nzN8a8nuQAsFQEwNbW1l8Arif5+v1+6l6JIvJykkMp9W0RALY4q0njxphXsgCcTHLEcXynKACSLu3R1FrGmOeaKgD/bmxsbBUFAOChw5W6wWPK8bwActMngEe7B40xOo7jalEAvV7vhMP1KJWQ/F/p35Icm5ubp4sCMMa47rq/ZgH4McnR7/ffLRDgbNK47QhSEpAXJflGdq/RaOT+6BcEwaiI9CS5HzqTRbAl4uxCz+cNQPILR8HuT0xMZFvcAG46IB6EYZjbYrYVfpwUa6iuVyl1zgFgACzXarWhp5ItxF1XHK31q5nFm80mAay7xEleHmYrxD6VfefSt4W6FQRBLTOE3XTqDQiwYvv5VGanjbPyuUKQXNwjSJfkgm2JB1oQBKN2wT6WfSSfFQLP/qhWq1632102xry3x3lbAK4DWCV5B8BDAOz1eieMMZPGmLPGmLclY0sC4Aet9Ts7Ozt/pD65VCqNALiRpmpFHABuaa2zTacoiiK7U3B8IVqtFknOi8j2sYUQEfF9/xSAa8cawoJM2q2PxG0RR+D7JBdJfn4kIEREarWathu4HwO4AmAVwBqA7wGsALhEct73/TNPepvp6WnaVuFoQGSxFxAvIHK0qampvCCuHApAXhAALh0aQB4QRTwxpraZmZmsEL+PjIzk+5LwICGUUh8cdt6ZIUh+NTc3d/CfLuQBQXIpz7dGBwmxTXJhbGzs6FV+t83Ozj6FAPAzyc/sFwTP2X+/phZuCeqqnwAAAABJRU5ErkJggg==);
+                opacity: 0;
+                @include transition(opacity);
+
+            }
+
+            
+            &:hover {
+
+                &:after {
+                    opacity: 1;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

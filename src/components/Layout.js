@@ -1,14 +1,21 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import Navbar from './Navbar'
+import { withPrefix, Link } from "gatsby"
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title="Home | Gatsby + WordPress" />
+    <Helmet title="Home | Gatsby + WordPress">
+      <script src={withPrefix('zoom-images.js')} type="text/javascript" />
+    </Helmet> />
     <Navbar />
     <main>
       {children}
     </main>
+    <div id="zoomGallery" className="zoom-popup">
+      <div className="zoom-popup-container">
+      </div>
+    </div>
     <footer className="footer">
       <div className="container">
         <div className="column">
